@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <% if @horse.cover.attached? %>
+  <%= image_tag url_for(@horse.cover)%>
+  <% end %>
+</p>
+
+<p>
+  <strong><%= @horse.nome %>, <%= @horse.eta %> anni</strong>
+</p>
+
+<p>
+  <strong><%= @horse.descrizione %></strong>
+</p>
+
+
+<%= link_to 'Modifica', edit_horse_path(@horse), class: 'btn btn-primary' %> |
+<%= link_to 'Indietro', horses_path, class: 'btn btn-primary' %>

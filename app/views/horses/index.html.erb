@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cavalli</h1>
+
+
+<div class="container">
+  <div class="row">
+    <% @horses.each do |horse| %>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+          <% if horse.cover.attached? %>
+              <%= link_to (image_tag url_for(horse.cover),class: 'card-img-top'), horse %>
+          <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= horse.nome %>, <%= horse.eta %> anni</h5>
+          <p class="card-text"><%= horse.descrizione %></p>
+          <%= link_to 'Modifica', edit_horse_path(horse), class:'btn btn-primary' %>
+          <%= link_to 'Elimina', horse, method: :delete, data: { confirm: 'Sei sicuro?' }, class:'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<br>
+
+<%= link_to 'Nuovo cavallo', new_horse_path, class: 'btn btn-primary' %>

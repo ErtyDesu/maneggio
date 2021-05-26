@@ -1,0 +1,53 @@
+<%= form_with(model: horse) do |form| %>
+  <% if horse.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(horse.errors.count, "error") %> prohibited this horse from being saved:</h2>
+
+      <ul>
+        <% horse.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm form-label">
+          <%= form.label :nome, class: 'form-label'%>
+          <%= form.text_field :nome, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm form-label">
+          <%= form.label :descrizione, class: 'form-label'%>
+          <%= form.text_field :descrizione, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm form-label">
+          <%= form.label :eta, class: 'form-label' %>
+          <%= form.number_field :eta, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm form-label">
+          <%= form.label :cover, class: 'form-label' %>
+          <%= form.file_field :cover, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Aggiungi/modifica cavallo', class: 'btn btn-primary' %>
+  </div>
+<% end %>

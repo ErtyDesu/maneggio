@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Cognome</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Note</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %> 
+    <tr>
+    
+      <td><%= user.cognome %></td>
+    
+      <td><%= user.nome %></td>
+
+      <td><%= user.email %> </td>
+      
+      <td><%= user.numero %> €</td>
+
+      <td><%= user.note %> </td>
+    
+      <td><%= link_to 'Modifica', edit_user_path(user), class: 'btn btn-primary' %></td>  
+    
+      <td><%= link_to 'Elimina', user, method: :delete, data: { confirm: 'Sei sicuro?' }, class: 'btn btn-danger' %></td>  
+
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuovo utente', new_user_path, class: 'btn btn-primary'%>
